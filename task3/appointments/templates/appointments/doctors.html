@@ -1,0 +1,24 @@
+{% extends 'appointments/book_base.html' %}
+
+{% block content %}
+  <div class="col-md-8">
+    <div class="tab-content profile-tab" id="myTabContent">
+       {% comment %} <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> {% endcomment %}
+         {% for form in form %}
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                          <img class="card-img-top" src="{{ form.profile_picture.url }}" alt="Doctor Image">
+                          <div class="card-body">
+                            <h5 class="card-title">Dr. {{ form.first_name }} {{ form.last_name }}</h5>
+
+                             <a href="{% url 'appointments:bookform' form.id %}" class="btn btn-primary">Book Appointment</a>
+                          </div>
+                       </div>
+                   </div>
+              </div>
+        {% endfor %}
+      </div>
+    </div>
+   </div>
+{% endblock %}
